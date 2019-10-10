@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="toast"  ref='toastPosition' :class="{active: toastHidden}">
+    <div class="toast"  ref='toast' :class="{active: toastHidden}">
       <div class="toast-warpper">
         {{text}}
       </div>
@@ -13,7 +13,7 @@
     name: 'test-toast',
     data () {
       return {
-        text: '',
+        text: 'ff',
         toastHidden: false
       }
     },

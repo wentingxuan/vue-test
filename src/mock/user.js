@@ -23,6 +23,13 @@ const userMap = {
     introduction: '我是开发',
     name: '工程师小王',
     uid: '003'
+  },
+  consumer:{
+    role: ['consumer'],
+    token: 'consumer',
+    introduction: '消费者',
+    name: '青青',
+    uid: '004'
   }
 }
 

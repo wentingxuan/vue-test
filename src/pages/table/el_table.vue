@@ -63,7 +63,7 @@
           </template>
         </el-table-column>
       </el-table>
-      <div class="block">
+      <div class="block" style="float: left;width:100%;">
         <el-pagination
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
@@ -72,8 +72,14 @@
           :page-size="100"
           background
           layout="total, sizes, prev, pager, next, jumper"
-          :total="1000" class="pagination">
+          :total=total class="pagination">
         </el-pagination>
+      </div>
+      <div class="btn" style="margin-left: 60px;float: left;">
+        <el-row>
+          <el-button type="primary" @click="addUser()">添加</el-button>
+          <el-button type="success">删除</el-button>
+        </el-row>
       </div>
     </div>
     <div v-if="edit">
@@ -96,10 +102,11 @@
     data() {
       return {
         tableData: [],
+        total:0,
         list:true,
         edit:false,
         formBox:'formBox',
-        currentPage2: 5
+        currentPage2: 1
       }
     },
     mounted(){
@@ -116,13 +123,17 @@
           .then(response => {
             let $data = response.data.data.list;
             $this.tableData = $data;
+            $this.total = response.data.data.total
           })
       },
       handleEdit(index, row) {
         //编辑页面返回使用了子页面调用父页面的方法
         this.edit = true;
         this.list = false;
-        this.editView = formBox;
+      },
+      addUser(){
+        this.edit = true;
+        this.list = false;
       },
       handleDelete(index, row) {
         console.log(index, row);

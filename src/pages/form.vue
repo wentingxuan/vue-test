@@ -5,9 +5,9 @@
           <el-input v-model="ruleForm.userName"></el-input>
         </el-form-item>
         <el-form-item label="下拉框" prop="address">
-          <el-select v-model="ruleForm.address" placeholder="请选择活动区域">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
+          <el-select v-model="ruleForm.address" ref="address" placeholder="请选择活动区域">
+            <el-option label="上海" value="shanghai"></el-option>
+            <el-option label="北京" value="beijing"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="日期" required>
@@ -88,7 +88,6 @@
   import TestToast from "../plugin/toast.vue";
   import TestPanel from "../plugin/panel.vue";
 
-
   export default {
     name:'表单管理',
     components: {
@@ -109,7 +108,7 @@
           desc: '',
           slideData: 48,
           rateValue:null,
-          colors: ['#99A9BF', '#F7BA2A', '#FF9900']  // 等同于 { 2: '#99A9BF', 4: { value: '#F7BA2A', excluded: true }, 5: '#FF9900' }
+          colors: ['#cce433', '#66feaa', '#33ea44']  // 等同于 { 2: '#99A9BF', 4: { value: '#F7BA2A', excluded: true }, 5: '#FF9900' }
         },
         rules: {
           userName: [
@@ -141,12 +140,8 @@
     inject:['goBack'],
     mounted(){
       this.getFormData();
-      this.$refs.toast.toastPlugin('一个测试丫丫',2388)
     },
     methods: {
-      editParams(){
-        let $this = this;
-      },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {

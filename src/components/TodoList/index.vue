@@ -10,7 +10,7 @@
       <input class="toggle-all" id="toggle-all" type="checkbox" :checked="allChecked" @change="toggleAll({ done: !allChecked })">
       <label for="toggle-all"></label>
       <ul class="todo-list">
-        <todo @toggleTodo='toggleTodo' @editTodo='editTodo' @deleteTodo='deleteTodo' v-for="(todo, index) in filteredTodos" :key="index"
+        <todo @toggleTodo='toggleTodo' @editTodo='editTodo' @deleteTodo='deleteTodo' v-for="(todo,index) in filteredTodos" :key="index"
           :todo="todo"></todo>
       </ul>
     </section>

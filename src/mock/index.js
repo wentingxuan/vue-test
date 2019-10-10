@@ -6,7 +6,7 @@ import DashbordApi from './dashbord.js'
 import getFormApi from './form.js'
 import getUserApi from  './user.js'
 
-const Mock = require('mockjs') // Mock函数
+const Mock = require('mockjs'); // Mock函数
 // 使用拦截规则拦截命中的请求
 
 Mock.mock('api/getChartData','get',ChartApi.getChartData);

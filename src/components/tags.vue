@@ -68,7 +68,7 @@
           this.tagsList.push({
             title: route.name,
             path: route.fullPath,
-            name: route.matched[1].components.default.name
+            name: route.name
           })
         }
         bus.$emit('tags', this.tagsList);
@@ -114,11 +114,12 @@
 
 <style>
   .tags {
-    position: relative;
+    position: fixed;
+    width: 100%;
     height: 38px;
     overflow: hidden;
+    z-index: 1000;
     background: #fff;
-    padding-right: 120px;
     box-shadow: 0 5px 10px #ddd;
   }
 
@@ -175,6 +176,7 @@
     position: absolute;
     right: 0;
     top: 0;
+    margin-right:210px;
     box-sizing: border-box;
     padding-top: 1px;
     text-align: center;

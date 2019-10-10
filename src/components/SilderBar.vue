@@ -1,6 +1,6 @@
 <template>
   <div style="width:204px;
-    background: rgb(84,92,100);">
+    background: rgb(84,92,100);overflow: auto">
     <el-menu
       background-color="#424f63"
       text-color="#fff"
@@ -67,10 +67,27 @@
             icon: 'el-icon-tickets'
           },
           {
+            path: '/button',
+            title: '按钮',
+            icon: 'el-icon-s-order'
+          },
+          {
             path: '/map',
             title: '地图',
             icon: 'el-icon-map-location'
-          }
+          },
+          {
+            path: '/store',
+            title: '购物管理',
+            hidden:false,
+            icon: 'el-icon-paperclip',
+            children:[
+              {path: '/store/store-list',title: '商品管理',icon:'el-icon-upload2',hidden:false},
+              {path: '/store/storeBuyList', title: '商品购买列表',icon:'el-icon-upload2',hidden:false},
+              {path: '/store/shopcar',title: '购物车',icon:'el-icon-upload2',hidden:false},
+              {path: '/store/order',title: '订单管理',icon:'el-icon-upload2',hidden:false}
+            ]
+          },
         ],
         isCollapsed: false,
         adminMenuShow: false
